@@ -14,7 +14,7 @@ from .core.loader import load_tools
 langfuse_handler = None
 if settings.LANGFUSE_PUBLIC_KEY and settings.LANGFUSE_SECRET_KEY:
     os.environ["LANGFUSE_SECRET_KEY"] = settings.LANGFUSE_SECRET_KEY
-    os.environ["LANGFUSE_HOST"] = settings.LANGFUSE_HOST or "https://cloud.langfuse.com"
+    os.environ["LANGFUSE_BASE_URL"] = settings.LANGFUSE_BASE_URL or "https://cloud.langfuse.com"
 
     langfuse_handler = CallbackHandler(
         public_key=settings.LANGFUSE_PUBLIC_KEY

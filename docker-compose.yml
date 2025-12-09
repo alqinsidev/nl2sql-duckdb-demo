@@ -11,7 +11,7 @@ services:
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
       - LANGFUSE_PUBLIC_KEY=${LANGFUSE_PUBLIC_KEY}
       - LANGFUSE_SECRET_KEY=${LANGFUSE_SECRET_KEY}
-      - LANGFUSE_HOST=${LANGFUSE_HOST:-https://cloud.langfuse.com}
+      - LANGFUSE_BASE_URL=${LANGFUSE_BASE_URL:-https://cloud.langfuse.com}
       - MODEL_NAME=${MODEL_NAME:-gemini-2.5-flash}
       - TEMPERATURE=${TEMPERATURE:-0}
       - LOG_LEVEL=${LOG_LEVEL:-INFO}

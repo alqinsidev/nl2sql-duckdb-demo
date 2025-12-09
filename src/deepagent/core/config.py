@@ -5,7 +5,7 @@ class Settings(BaseSettings):
     GOOGLE_API_KEY: str
     LANGFUSE_PUBLIC_KEY: Optional[str] = None
     LANGFUSE_SECRET_KEY: Optional[str] = None
-    LANGFUSE_HOST: Optional[str] = "https://cloud.langfuse.com"
+    LANGFUSE_BASE_URL: Optional[str] = "https://cloud.langfuse.com"
     
     MODEL_NAME: str = "gemini-2.5-flash"
     TEMPERATURE: float = 0.0

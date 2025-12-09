@@ -57,7 +57,7 @@ A showcase project that leverages **LangChain DeepAgent** and **LangChain SQL Ag
     cp .env.example .env
     ```
     - `GOOGLE_API_KEY`: Your Google AI Studio API Key.
-    - `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_HOST`: Your Langfuse credentials.
+    - `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_BASE_URL`: Your Langfuse credentials.
 
 ## Running Locally
 
