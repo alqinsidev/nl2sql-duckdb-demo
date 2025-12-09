@@ -4,6 +4,13 @@ A showcase project that leverages **LangChain DeepAgent** and **LangChain SQL Ag
 
 > **Note**: This project is based on the [DeepAgent Starter Kit](https://github.com/alqinsidev/deepagent-starter).
 
+## Showcase
+> Q: how much transaction by unique users on 2024?
+>
+> A: There were 1615 transactions made by unique users in 2024.
+
+<img src="https://github.com/alqinsidev/nl2sql-duckdb-demo/blob/main/doc/unique-user-2024.gif"/>
+
 ## Features
 
 - **Natural Language to SQL**: Automatically converts user questions into executed SQL queries.
