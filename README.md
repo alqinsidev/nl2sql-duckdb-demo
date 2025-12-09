@@ -15,6 +15,7 @@ A showcase project that leverages **LangChain DeepAgent** and **LangChain SQL Ag
 - **Production Ready**: Features structured logging, `pydantic-settings`, and Docker support.
 
 ## Architecture
+<img width="1941" height="1272" alt="image" src="https://github.com/user-attachments/assets/7984a651-3916-4a5f-b8bb-7127e7084e5b" />
 
 
 ## Project Structure
