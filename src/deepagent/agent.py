@@ -1,29 +1,15 @@
 import os
 import time
 import json
-from langchain_google_genai import ChatGoogleGenerativeAI
 from deepagents import create_deep_agent
-from langfuse.langchain import CallbackHandler
 from langfuse import observe
 from langgraph.checkpoint.memory import MemorySaver
 from .core.config import settings
 from .core.logger import logger
 from .core.loader import load_tools
 
-# Initialize Langfuse Callback
-langfuse_handler = None
-if settings.LANGFUSE_PUBLIC_KEY and settings.LANGFUSE_SECRET_KEY:
-    os.environ["LANGFUSE_SECRET_KEY"] = settings.LANGFUSE_SECRET_KEY
-    os.environ["LANGFUSE_BASE_URL"] = settings.LANGFUSE_BASE_URL or "https://cloud.langfuse.com"
-
-    langfuse_handler = CallbackHandler(
-        public_key=settings.LANGFUSE_PUBLIC_KEY
-    )
-    logger.info("Langfuse integration enabled.")
-else:
-    logger.warning("Langfuse credentials not found. Tracing disabled.")
-
 from .core.llm import get_llm
+from .core.langfuse import langfuse_handler
 
 # Initialize Gemini Model
 llm = get_llm()
@@ -45,7 +31,7 @@ graph = create_deep_agent(
     checkpointer=memory
 )
 
-@observe(capture_output=False)
+@observe(name="stream_agent_response")
 async def stream_agent_response(input_text: str, thread_id: str = "default"):
     """
     Generates a stream of responses from the agent using astream_events for token streaming.
@@ -109,7 +95,7 @@ async def stream_agent_response(input_text: str, thread_id: str = "default"):
         "data": json.dumps({"status": "completed", "timestamp": time.time()})
     }
 
-@observe(capture_output=False)
+@observe(name="get_final_response")
 async def get_final_response(input_text: str, thread_id: str = "default") -> dict:
     """
     Executes the agent and returns a single JSON object with the final answer.
