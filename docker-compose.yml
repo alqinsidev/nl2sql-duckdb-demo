@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  deepagent:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - LANGFUSE_PUBLIC_KEY=${LANGFUSE_PUBLIC_KEY}
+      - LANGFUSE_SECRET_KEY=${LANGFUSE_SECRET_KEY}
+      - LANGFUSE_HOST=${LANGFUSE_HOST:-https://cloud.langfuse.com}
+      - MODEL_NAME=${MODEL_NAME:-gemini-2.5-flash}
+      - TEMPERATURE=${TEMPERATURE:-0}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    env_file:
+      - .env

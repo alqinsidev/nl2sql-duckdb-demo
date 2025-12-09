@@ -1,0 +1,15 @@
+langchain
+langchain-community
+langchain-google-genai
+langfuse
+langgraph
+requests
+fastapi
+uvicorn
+deepagents
+python-dotenv
+pydantic-settings
+duckdb
+sqlalchemy
+duckdb-engine
+sse_starlette
